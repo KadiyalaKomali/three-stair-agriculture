@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import Cookies from 'js-cookie';
-import { User } from '../types';
+import { User } from '../types/types';
 
 interface AuthContextType {
   user: User | null;

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Plus, Sun, Battery, Zap, TrendingUp } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, AreaChart, Area } from 'recharts';
 import { mockSolarData } from '../services/mockData';
-import { SolarData } from '../types';
+import { SolarData } from '../types/types';
 
 export const SolarMonitoring: React.FC = () => {
   const [solarData, setSolarData] = useState<SolarData[]>(mockSolarData);

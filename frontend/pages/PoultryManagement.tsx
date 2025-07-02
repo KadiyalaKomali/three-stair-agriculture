@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Plus, Edit, Trash2, Heart, AlertTriangle, CheckCircle, Egg } from 'lucide-react';
 import { mockPoultry, mockEggProduction } from '../services/mockData';
-import { Poultry, EggProduction } from '../types';
+import { Poultry, EggProduction } from '../types/types';
 
 export const PoultryManagement: React.FC = () => {
   const [poultry, setPoultry] = useState<Poultry[]>(mockPoultry);
