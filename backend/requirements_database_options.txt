@@ -1,0 +1,24 @@
+# Database Driver Requirements
+# Install the appropriate driver for your chosen database
+
+# PostgreSQL (Current Default)
+psycopg2-binary==2.9.9
+
+# MySQL/MariaDB
+# pymysql==1.1.0
+# mysqlclient==2.2.0
+
+# SQLite (Built into Python - no additional packages needed)
+
+# SQL Server
+# pyodbc==4.0.39
+
+# Oracle
+# cx-Oracle==8.3.0
+
+# MongoDB (NoSQL Alternative)
+# pymongo==4.6.0
+# motor==3.3.2  # For async support
+
+# Redis (For caching/sessions)
+# redis==5.0.1
