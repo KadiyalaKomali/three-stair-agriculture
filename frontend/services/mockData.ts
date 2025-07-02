@@ -1,14 +1,13 @@
-import { Fish, Poultry, EggProduction, SolarData, Inventory, DashboardStats } from '../types/types';
+import { Fish, Poultry, SolarData } from '../types/types';
 
-// Fish Data
+// ✅ FETCH FISH DATA (from backend or mock fallback)
 export const getFishData = async (): Promise<Fish[]> => {
   try {
     const response = await fetch("https://three-stair-agriculture.onrender.com/fish");
-    if (!response.ok) throw new Error("Failed to fetch fish");
-    const data = await response.json();
-    return data;
+    if (!response.ok) throw new Error("Fetch failed");
+    return await response.json();
   } catch (error) {
-    console.warn("Using mock fish data due to error:", error);
+    console.warn("Failed to fetch fish from API, using mock data:", error);
     return [
       {
         id: '1',
@@ -29,36 +28,96 @@ export const getFishData = async (): Promise<Fish[]> => {
         targetWeight: 1.8,
         healthStatus: 'healthy',
         mortality: 5
-      },
-      {
-        id: '3',
-        species: 'Carp',
-        quantity: 280,
-        dateAdded: '2024-01-28',
-        currentWeight: 0.9,
-        targetWeight: 1.5,
-        healthStatus: 'sick',
-        mortality: 12
       }
     ];
   }
 };
 
-// Add more async functions like this for poultry, solar, etc. when backend is ready
-
-// Chart Data Generator
-export const generateChartData = () => {
-  const data = [];
-  const today = new Date();
-  for (let i = 29; i >= 0; i--) {
-    const date = new Date(today);
-    date.setDate(date.getDate() - i);
-    data.push({
-      date: date.toISOString().split('T')[0],
-      eggs: Math.floor(Math.random() * 50) + 250,
-      fish: Math.floor(Math.random() * 100) + 1000,
-      solar: Math.floor(Math.random() * 20) + 35,
-    });
-  }
-  return data;
+// ✅ FETCH POULTRY DATA (mock only for now)
+export const getPoultryData = async (): Promise<Poultry[]> => {
+  return [
+    {
+      id: '1',
+      type: 'Rhode Island Red',
+      count: 85,
+      age: 18,
+      healthStatus: 'healthy',
+      mortality: 3,
+      dateAdded: '2023-12-10'
+    },
+    {
+      id: '2',
+      type: 'Leghorn',
+      count: 120,
+      age: 24,
+      healthStatus: 'healthy',
+      mortality: 2,
+      dateAdded: '2023-11-15'
+    }
+  ];
 };
+
+// ✅ FETCH SOLAR DATA (returns mock data)
+export const getSolarData = async (): Promise<SolarData[]> => {
+  return mockSolarData;
+};
+
+// ✅ MOCK SOLAR DATA EXPORT (used in SolarMonitoring.tsx)
+export const mockSolarData: SolarData[] = [
+  {
+    id: '1',
+    date: '2024-01-15',
+    powerGenerated: 45.2,
+    batteryLevel: 89,
+    consumption: 38.5,
+    efficiency: 92
+  },
+  {
+    id: '2',
+    date: '2024-01-16',
+    powerGenerated: 52.8,
+    batteryLevel: 95,
+    consumption: 41.2,
+    efficiency: 94
+  },
+  {
+    id: '3',
+    date: '2024-01-17',
+    powerGenerated: 38.9,
+    batteryLevel: 78,
+    consumption: 39.8,
+    efficiency: 88
+  },
+  {
+    id: '4',
+    date: '2024-01-18',
+    powerGenerated: 49.1,
+    batteryLevel: 92,
+    consumption: 42.3,
+    efficiency: 91
+  },
+  {
+    id: '5',
+    date: '2024-01-19',
+    powerGenerated: 55.3,
+    batteryLevel: 98,
+    consumption: 44.1,
+    efficiency: 96
+  },
+  {
+    id: '6',
+    date: '2024-01-20',
+    powerGenerated: 47.6,
+    batteryLevel: 85,
+    consumption: 40.9,
+    efficiency: 90
+  },
+  {
+    id: '7',
+    date: '2024-01-21',
+    powerGenerated: 51.2,
+    batteryLevel: 93,
+    consumption: 43.7,
+    efficiency: 93
+  }
+];

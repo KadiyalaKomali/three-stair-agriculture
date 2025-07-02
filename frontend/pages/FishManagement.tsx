@@ -1,9 +1,8 @@
-// frontend/pages/FishPage.tsx
 import React, { useEffect, useState } from "react";
 import { Fish } from "../types/types";
 import { getFishData } from "../services/mockData";
 
-export default function FishPage() {
+const FishPage: React.FC = () => {
   const [fishList, setFishList] = useState<Fish[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -41,4 +40,6 @@ export default function FishPage() {
       </div>
     </div>
   );
-}
+};
+
+export default FishPage;

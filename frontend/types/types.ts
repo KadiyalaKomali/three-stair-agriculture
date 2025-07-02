@@ -1,10 +1,3 @@
-export interface User {
-  id: string;
-  email: string;
-  name: string;
-  role: 'admin' | 'manager';
-}
-
 export interface Fish {
   id: string;
   species: string;
@@ -12,7 +5,7 @@ export interface Fish {
   dateAdded: string;
   currentWeight: number;
   targetWeight: number;
-  healthStatus: 'healthy' | 'sick' | 'critical';
+  healthStatus: string;
   mortality: number;
 }
 
@@ -21,17 +14,9 @@ export interface Poultry {
   type: string;
   count: number;
   age: number;
-  healthStatus: 'healthy' | 'sick' | 'critical';
+  healthStatus: string;
   mortality: number;
   dateAdded: string;
-}
-
-export interface EggProduction {
-  id: string;
-  date: string;
-  eggsCollected: number;
-  brokenEggs: number;
-  henCount: number;
 }
 
 export interface SolarData {
@@ -41,18 +26,6 @@ export interface SolarData {
   batteryLevel: number;
   consumption: number;
   efficiency: number;
-}
-
-export interface Inventory {
-  id: string;
-  itemName: string;
-  category: 'fish_feed' | 'hen_feed' | 'medicine' | 'equipment';
-  currentStock: number;
-  minThreshold: number;
-  unit: string;
-  lastUpdated: string;
-  supplier: string;
-  costPerUnit: number;
 }
 
 export interface DashboardStats {
