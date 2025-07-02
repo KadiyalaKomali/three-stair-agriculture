@@ -3,7 +3,8 @@ import { Fish, Poultry, SolarData } from '../types/types';
 // ✅ FETCH FISH DATA (from backend or mock fallback)
 export const getFishData = async (): Promise<Fish[]> => {
   try {
-    const response = await fetch("https://three-stair-agriculture.onrender.com/fish");
+    const response = await fetch("https://three-stair-agriculture-backend.onrender.com/fish")
+
     if (!response.ok) throw new Error("Fetch failed");
     return await response.json();
   } catch (error) {

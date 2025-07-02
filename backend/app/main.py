@@ -18,7 +18,7 @@ app = FastAPI(
 # Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.CORS_ORIGINS,
+    allow_origins=["https://three-stair-agriculture.vercel.app"],  # or ["https://your-vercel-url.app"]
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
